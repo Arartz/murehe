@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+
+:root {
+    --background: 210 20% 98%;
+    --foreground: 345 20% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 345 20% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 345 20% 12%;
+    --primary: 345 35% 25%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 210 10% 94%;
+    --secondary-foreground: 345 35% 25%;
+    --muted: 210 10% 90%;
+    --muted-foreground: 345 15% 45%;
+    --accent: 41 40% 60%;
+    --accent-foreground: 345 35% 15%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 210 10% 88%;
+    --input: 210 10% 88%;
+    --ring: 345 35% 25%;
+    --radius: 0.6rem;
+    --maroon: 345 35% 25%;
+    --maroon-light: 345 25% 35%;
+    --maroon-dark: 345 40% 18%;
+    --gold: 41 40% 60%;
+    --gold-light: 41 35% 75%;
+    --cream: 210 20% 98%;
+}
+
+.dark {
+    --background: 345 30% 8%;
+    --foreground: 210 20% 98%;
+    --card: 345 25% 12%;
+    --card-foreground: 210 20% 98%;
+    --popover: 345 25% 12%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 41 40% 60%;
+    --primary-foreground: 345 30% 10%;
+    --secondary: 345 20% 18%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 345 15% 15%;
+    --muted-foreground: 210 10% 75%;
+    --accent: 41 40% 60%;
+    --accent-foreground: 345 30% 10%;
+    --destructive: 0 50% 40%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 345 20% 15%;
+    --input: 345 20% 15%;
+    --ring: 41 40% 60%;
+    --maroon: 345 35% 30%;
+    --maroon-light: 345 25% 40%;
+    --maroon-dark: 345 40% 20%;
+    --gold: 41 40% 60%;
+    --gold-light: 41 35% 75%;
+    --cream: 210 20% 98%;
+}
+
+body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.font-heading {
+    font-family: 'Georgia', serif;
+}
+
+.bg-gradient-maroon {
+    background: linear-gradient(135deg, hsl(var(--maroon-dark)) 0%, hsl(var(--maroon)) 100%);
+}
+
+.bg-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+[data-theme='dark'] .logo-light,
+[data-theme='light'] .logo-dark {
+    display: none;
+}

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/title.png">
+    <title>Academics | Jasiri Christian School</title>
+    <meta name="description"
+        content="Explore our learner-centered, competency-based education and technology-integrated modern learning.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        accent: 'hsl(var(--accent))',
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        card: 'hsl(var(--card))',
+                        'card-foreground': 'hsl(var(--card-foreground))',
+                        border: 'hsl(var(--border))',
+                        muted: 'hsl(var(--muted))',
+                        'muted-foreground': 'hsl(var(--muted-foreground))',
+                    },
+                    fontFamily: {
+                        heading: ['Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-background text-foreground transition-colors duration-300">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="assets/logo.png" alt="Logo" class="h-14 w-14 dynamic-logo" data-light="assets/logo.png"
+                        data-dark="assets/title.png">
+                    <div class="hidden sm:block">
+                        <h1 class="text-lg font-heading font-bold text-primary dark:text-accent">Jasiri Christian School
+                        </h1>
+                        <p class="text-xs text-muted-foreground italic">Boldly learn, serve and grow</p>
+                    </div>
+                </a>
+
+                <div class="flex items-center gap-4">
+                    <nav class="hidden lg:flex items-center gap-1">
+                        <a href="index.html"
+                            class="px-3 py-2 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">Home</a>
+                        <a href="about.html"
+                            class="px-3 py-2 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">About
+                            Us</a>
+                        <a href="academics.html"
+                            class="px-3 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground">Academics</a>
+                        <a href="admissions.html"
+                            class="px-3 py-2 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">Admissions</a>
+                        <a href="contact.html"
+                            class="px-3 py-2 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">Contact</a>
+                    </nav>
+
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-secondary transition-colors"
+                        title="Toggle theme">
+                        <svg id="sun-icon" class="w-6 h-6 dark:hidden" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M14.5 12a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z">
+                            </path>
+                        </svg>
+                        <svg id="moon-icon" class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md hover:bg-secondary">
+                        <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                        <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <nav id="mobile-navigation" class="hidden lg:hidden border-t border-border bg-card">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-2">
+                <a href="index.html"
+                    class="px-4 py-3 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">Home</a>
+                <a href="about.html"
+                    class="px-4 py-3 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">About
+                    Us</a>
+                <a href="academics.html"
+                    class="px-4 py-3 text-sm font-medium rounded-md bg-primary text-primary-foreground">Academics</a>
+                <a href="admissions.html"
+                    class="px-4 py-3 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">Admissions</a>
+                <a href="contact.html"
+                    class="px-4 py-3 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Academics Hero -->
+        <section class="bg-gradient-maroon text-primary-foreground py-16 lg:py-24">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-heading font-bold mb-6">Academic Excellence</h1>
+                <p class="text-lg opacity-90 max-w-3xl mx-auto leading-relaxed">
+                    Our learner-centered, competency-based education (CBC) empowers students to achieve
+                    academic mastery while developing critical real-world skills.
+                </p>
+            </div>
+        </section>
+
+        <!-- CBC Approach -->
+        <section class="py-20 bg-background">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-heading font-bold text-primary dark:text-accent mb-6">Competency-Based
+                            Education</h2>
+                        <div class="space-y-4 text-muted-foreground">
+                            <p>We follow Rwanda's national competency-based curriculum, which shifts the focus from rote
+                                memorization to active learning and practical skills.</p>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <li class="flex items-center gap-3 bg-secondary/30 p-3 rounded-lg">
+                                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Critical Thinking</span>
+                                </li>
+                                <li class="flex items-center gap-3 bg-secondary/30 p-3 rounded-lg">
+                                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Creativity</span>
+                                </li>
+                                <li class="flex items-center gap-3 bg-secondary/30 p-3 rounded-lg">
+                                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Collaboration</span>
+                                </li>
+                                <li class="flex items-center gap-3 bg-secondary/30 p-3 rounded-lg">
+                                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Communication</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-card p-8 rounded-2xl shadow-xl border border-border">
+                        <h3 class="text-xl font-heading font-bold mb-4">Subjects We Offer</h3>
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-8 text-sm opacity-80">
+                            <div>Mathematics</div>
+                            <div>Science & Tech</div>
+                            <div>English</div>
+                            <div>Kinyarwanda</div>
+                            <div>Social Studies</div>
+                            <div>Christian Ethics</div>
+                            <div>Creative Arts</div>
+                            <div>ICT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology & Modern Learning -->
+        <section class="py-20 bg-secondary/30">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl font-heading font-bold text-primary dark:text-accent mb-4">Technology-Integrated
+                        Learning</h2>
+                    <p class="text-muted-foreground leading-relaxed">We prepare our students for the digital age by
+                        integrating modern technology into our daily lessons.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Feature 1 -->
+                    <div class="bg-card p-8 rounded-2xl shadow-sm border border-border text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">Smart Classrooms</h4>
+                        <p class="text-xs text-muted-foreground opacity-80">Equipped with digital tools that enhance
+                            interaction and engagement.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-card p-8 rounded-2xl shadow-sm border border-border text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">E-Library</h4>
+                        <p class="text-xs text-muted-foreground opacity-80">Access to a wide range of digital resources
+                            for research and independent study.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-card p-8 rounded-2xl shadow-sm border border-border text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 10V4.3a.3.3 0 00-.312-.3C11.532 4.095 9.46 6.556 9 8.5V10h5zM10 10v9a1 1 0 001 1h2a1 1 0 001-1v-9h-4z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">Coding for Kids</h4>
+                        <p class="text-xs text-muted-foreground opacity-80">Introduction to programming and
+                            computational thinking from an early age.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="assets/logo.png" alt="Logo" class="h-12 w-12 object-contain dynamic-logo"
+                            data-light="assets/logo.png" data-dark="assets/title.png">
+                        <h3 class="font-heading font-bold text-xl">Jasiri Christian School</h3>
+                    </div>
+                    <p class="opacity-80 text-sm leading-relaxed">Dedicated to nurturing bold, compassionate, and
+                        globally-minded learners rooted in faith.</p>
+                </div>
+                <div>
+                    <h4 class="font-heading font-bold text-accent mb-6 uppercase tracking-widest text-sm">Quick Links
+                    </h4>
+                    <ul class="space-y-4 text-sm opacity-80">
+                        <li><a href="index.html" class="hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-accent transition-colors">About Us</a></li>
+                        <li><a href="academics.html"
+                                class="hover:text-accent transition-colors text-accent">Academics</a></li>
+                        <li><a href="admissions.html" class="hover:text-accent transition-colors">Admissions</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-heading font-bold text-accent mb-6 uppercase tracking-widest text-sm">Community</h4>
+                    <ul class="space-y-4 text-sm opacity-80">
+                        <li><a href="about.html#teachers" class="hover:text-accent transition-colors">Our Educators</a>
+                        </li>
+                        <li><a href="about.html#culture" class="hover:text-accent transition-colors">School Culture</a>
+                        </li>
+                        <li><a href="contact.html" class="hover:text-accent transition-colors">Support JCS</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-heading font-bold text-accent mb-6 uppercase tracking-widest text-sm">Contact Us
+                    </h4>
+                    <ul class="space-y-4 text-sm opacity-80">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 shrink-0 text-accent" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>Rwamagana, Muyumbu, Murehe, Rwanda</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 shrink-0 text-accent" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            <a href="tel:+250XXXXXXXXX">+250 XXX XXX XXX</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-white/10 text-center text-xs opacity-60">
+                <p>&copy; 2026 Jasiri Christian School. Boldly learn, serve and grow.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Jasiri Christian School</title>
+    <meta name="description"
+        content="Nurturing bold, compassionate, and globally-minded learners rooted in faith and values.">
+    <link rel="icon" type="image/png" href="assets/title.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        accent: 'hsl(var(--accent))',
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        card: 'hsl(var(--card))',
+                        'card-foreground': 'hsl(var(--card-foreground))',
+                        border: 'hsl(var(--border))',
+                        muted: 'hsl(var(--muted))',
+                        'muted-foreground': 'hsl(var(--muted-foreground))',
+                    },
+                    fontFamily: {
+                        heading: ['Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-background text-foreground transition-colors duration-300">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="assets/logo.png" alt="Logo" class="h-14 w-14 dynamic-logo" data-light="assets/logo.png"
+                        data-dark="assets/title.png">
+                    <div class="hidden sm:block">
+                        <h1 class="text-lg font-heading font-bold text-primary dark:text-accent">Jasiri Christian School
+                        </h1>
+                        <p class="text-xs text-muted-foreground italic">Boldly learn, serve and grow</p>
+                    </div>
+                </a>
+
+                <div class="flex items-center gap-4">
+                    <nav class="hidden lg:flex items-center gap-1">
+                        <a href="index.html"
+                            class="px-3 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground">Home</a>
+                        <a href="about.html"
+                            class="px-3 py-2 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">About
+                            Us</a>
+                        <a href="academics.html"
+                            class="px-3 py-2 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">Academics</a>
+                        <a href="admissions.html"
+                            class="px-3 py-2 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">Admissions</a>
+                        <a href="contact.html"
+                            class="px-3 py-2 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">Contact</a>
+                    </nav>
+
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-secondary transition-colors"
+                        title="Toggle theme">
+                        <!-- Sun Icon -->
+                        <svg id="sun-icon" class="w-6 h-6 dark:hidden" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M14.5 12a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z">
+                            </path>
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg id="moon-icon" class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md hover:bg-secondary">
+                        <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                        <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <nav id="mobile-navigation" class="hidden lg:hidden border-t border-border bg-card">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-2">
+                <a href="index.html"
+                    class="px-4 py-3 text-sm font-medium rounded-md bg-primary text-primary-foreground">Home</a>
+                <a href="about.html"
+                    class="px-4 py-3 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">About
+                    Us</a>
+                <a href="academics.html"
+                    class="px-4 py-3 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">Academics</a>
+                <a href="admissions.html"
+                    class="px-4 py-3 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">Admissions</a>
+                <a href="contact.html"
+                    class="px-4 py-3 text-sm font-medium rounded-md text-foreground hover:bg-secondary hover:text-primary transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-maroon text-white py-20 lg:py-32 overflow-hidden">
+            <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('assets/1.jpeg');">
+            </div>
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h2 class="text-4xl md:text-6xl font-heading font-bold mb-6 animate-fade-in">Nurturing Excellence, <br
+                        class="hidden md:block"> Building Character</h2>
+                <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto mb-10">A vibrant Christian community where
+                    every child is empowered to learn, serve, and grow in faith and knowledge.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="admissions.html"
+                        class="bg-accent text-accent-foreground px-8 py-4 rounded-full font-bold hover:shadow-lg transition-all transform hover:-translate-y-1">Enroll
+                        Now</a>
+                    <a href="about.html"
+                        class="bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all">Learn
+                        More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values -->
+        <section class="py-20 bg-background">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="text-accent font-bold tracking-widest uppercase text-sm">Our Foundation</span>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold mt-2">Core Christian Values</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Faith -->
+                    <div
+                        class="bg-card p-8 rounded-2xl shadow-sm border border-border hover:shadow-md transition-shadow text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold mb-3">Faith Centered</h3>
+                        <p class="text-muted-foreground text-sm">Rooted in Biblical principles, fostering a personal
+                            relationship with Christ.</p>
+                    </div>
+                    <!-- Integrity -->
+                    <div
+                        class="bg-card p-8 rounded-2xl shadow-sm border border-border hover:shadow-md transition-shadow text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold mb-3">Integrity First</h3>
+                        <p class="text-muted-foreground text-sm">Encouraging honesty, accountability, and strong moral
+                            character in all students.</p>
+                    </div>
+                    <!-- Excellence -->
+                    <div
+                        class="bg-card p-8 rounded-2xl shadow-sm border border-border hover:shadow-md transition-shadow text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold mb-3">Academic Excellence</h3>
+                        <p class="text-muted-foreground text-sm">Striving for the highest standards in education and
+                            personal development.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discover Jasiri -->
+        <section class="py-20 bg-secondary/30">
+            <div class="container mx-auto px-4">
+                <div class="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold text-primary dark:text-accent mb-6">
+                            Discover the Jasiri Difference</h2>
+                        <div class="space-y-6 text-muted-foreground leading-relaxed">
+                            <p>Jasiri Christian School is more than just a place of learning; it's a family where
+                                students are nurtured to become leaders of tomorrow. Our curriculum blends academic
+                                rigor with spiritual growth.</p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <img src="assets/2.jpeg" alt="Activities"
+                                    class="rounded-xl shadow-lg w-full h-48 object-cover">
+                                <img src="assets/3.jpeg" alt="Classroom"
+                                    class="rounded-xl shadow-lg w-full h-48 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Card 1 -->
+                        <div class="bg-card p-6 rounded-2xl shadow-sm border border-border">
+                            <h4 class="font-bold text-lg mb-2">Our Mission</h4>
+                            <p class="text-xs opacity-80">To provide high-quality Christian education that transforms
+                                lives and equips students for service.</p>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="bg-card p-6 rounded-2xl shadow-sm border border-border">
+                            <h4 class="font-bold text-lg mb-2">Holistic Growth</h4>
+                            <p class="text-xs opacity-80">Focusing on spiritual, intellectual, physical, and social
+                                development for every learner.</p>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="bg-card p-6 rounded-2xl shadow-sm border border-border">
+                            <h4 class="font-bold text-lg mb-2">Global Vision</h4>
+                            <p class="text-xs opacity-80">Equipping students with a global perspective while staying
+                                rooted in their local community.</p>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="bg-card p-6 rounded-2xl shadow-sm border border-border">
+                            <h4 class="font-bold text-lg mb-2">Service Driven</h4>
+                            <p class="text-xs opacity-80">Encouraging a heart for service and community involvement from
+                                an early age.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="assets/logo.png" alt="Logo" class="h-12 w-12 object-contain dynamic-logo"
+                            data-light="assets/logo.png" data-dark="assets/title.png">
+                        <h3 class="font-heading font-bold text-xl">Jasiri Christian School</h3>
+                    </div>
+                    <p class="opacity-80 text-sm leading-relaxed">Dedicated to nurturing bold, compassionate, and
+                        globally-minded learners rooted in faith.</p>
+                </div>
+                <div>
+                    <h4 class="font-heading font-bold text-accent mb-6 uppercase tracking-widest text-sm">Quick Links
+                    </h4>
+                    <ul class="space-y-4 text-sm opacity-80">
+                        <li><a href="about.html" class="hover:text-accent transition-colors">About Us</a></li>
+                        <li><a href="academics.html" class="hover:text-accent transition-colors">Academics</a></li>
+                        <li><a href="admissions.html" class="hover:text-accent transition-colors">Admissions</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-heading font-bold text-accent mb-6 uppercase tracking-widest text-sm">Community</h4>
+                    <ul class="space-y-4 text-sm opacity-80">
+                        <li><a href="about.html#teachers" class="hover:text-accent transition-colors">Our Educators</a>
+                        </li>
+                        <li><a href="about.html#culture" class="hover:text-accent transition-colors">School Culture</a>
+                        </li>
+                        <li><a href="contact.html" class="hover:text-accent transition-colors">Support JCS</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-heading font-bold text-accent mb-6 uppercase tracking-widest text-sm">Contact Us
+                    </h4>
+                    <ul class="space-y-4 text-sm opacity-80">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 shrink-0 text-accent" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>Rwamagana, Muyumbu, Murehe, Rwanda</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 shrink-0 text-accent" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            <a href="tel:+250XXXXXXXXX">+250 XXX XXX XXX</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-white/10 text-center text-xs opacity-60">
+                <p>&copy; 2026 Jasiri Christian School. Boldly learn, serve and grow.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

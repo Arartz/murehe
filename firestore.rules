@@ -1,0 +1,108 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+    
+    function hasRole(role) {
+      return isSignedIn() && getUserData().role == role;
+    }
+    
+    function isAdmin() {
+      return hasRole('admin');
+    }
+    
+    function isTeacher() {
+      return hasRole('teacher');
+    }
+    
+    function isParent() {
+      return hasRole('parent');
+    }
+
+    // --- Collections ---
+
+    // Users: Admins manage all, users can read their own
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin() || request.auth.uid == userId;
+    }
+
+    // Students: Parents see their own, Teachers see all, Admins manage all
+    match /students/{studentId} {
+      allow read: if isAdmin() || isTeacher() || (isParent() && resource.data.parentUid == request.auth.uid);
+      allow write: if isAdmin();
+    }
+
+    // Teacher Assignments: Admins manage, Teachers read
+    match /teacherAssignments/{assignmentId} {
+      allow read: if isAdmin() || isTeacher();
+      allow write: if isAdmin();
+    }
+
+    // Marks: Teachers write for their class, Parents read for their child
+    match /marks/{markId} {
+      allow read: if isAdmin() || isTeacher() || (isParent() && get(/databases/$(database)/documents/students/$(resource.data.studentId)).data.parentUid == request.auth.uid);
+      allow create, update: if isAdmin() || (isTeacher() && request.resource.data.teacherId == request.auth.uid);
+      allow delete: if isAdmin();
+    }
+
+    // Attendance: Similar to Marks
+    match /attendance/{attId} {
+      allow read: if isAdmin() || isTeacher() || (isParent() && get(/databases/$(database)/documents/students/$(resource.data.studentId)).data.parentUid == request.auth.uid);
+      allow create, update: if isAdmin() || (isTeacher() && request.resource.data.teacherId == request.auth.uid);
+      allow delete: if isAdmin();
+    }
+
+    // Comments: Similar to Marks
+    match /comments/{commId} {
+      allow read: if isAdmin() || isTeacher() || (isParent() && get(/databases/$(database)/documents/students/$(resource.data.studentId)).data.parentUid == request.auth.uid);
+      allow create, update: if isAdmin() || (isTeacher() && request.resource.data.teacherId == request.auth.uid);
+      allow delete: if isAdmin();
+    }
+
+    // Term Results: Parents read their child's
+    match /termResults/{resId} {
+      allow read: if isAdmin() || isTeacher() || (isParent() && get(/databases/$(database)/documents/students/$(resource.data.studentId)).data.parentUid == request.auth.uid);
+      allow write: if isAdmin();
+    }
+
+    // Applications: Parents can create and read their own
+    match /applications/{appId} {
+      allow create: if true; // Public for new parents
+      allow read: if isAdmin() || (isSignedIn() && resource.data.parentEmail == request.auth.token.email);
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Metadata & Structure: Admins only
+    match /classes/{id} { allow read: if isSignedIn(); allow write: if isAdmin(); }
+    match /subjects/{id} { allow read: if isSignedIn(); allow write: if isAdmin(); }
+    match /terms/{id} { allow read: if isSignedIn(); allow write: if isAdmin(); }
+    match /metadata/{id} { allow read, write: if isAdmin(); }
+
+    // Messaging System
+    match /conversations/{convId} {
+      allow read, update: if isAdmin() || (isSignedIn() && (resource.data.parentId == request.auth.uid || resource.data.teacherId == request.auth.uid));
+      allow create: if isAdmin() || (isSignedIn() && (request.resource.data.parentId == request.auth.uid || request.resource.data.teacherId == request.auth.uid));
+      allow delete: if isAdmin();
+      
+      match /messages/{msgId} {
+        function isParticipant() {
+          let conv = get(/databases/$(database)/documents/conversations/$(convId)).data;
+          return conv.parentId == request.auth.uid || conv.teacherId == request.auth.uid;
+        }
+        allow read, update: if isAdmin() || (isSignedIn() && isParticipant());
+        allow create: if isSignedIn() && request.resource.data.senderId == request.auth.uid && isParticipant();
+        allow delete: if isAdmin();
+      }
+    }
+  }
+}

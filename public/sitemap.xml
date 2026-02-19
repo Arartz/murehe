@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://jasirischool.rw/</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://jasirischool.rw/about</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jasirischool.rw/academics</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jasirischool.rw/admissions</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jasirischool.rw/contact</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jasirischool.rw/announcements</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+</urlset>
